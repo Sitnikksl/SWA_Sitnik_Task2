@@ -29,4 +29,22 @@ body {
   background-color: #F5E9BC;
   border-radius: 25px;
 }
+
+.main-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-form input {
+  margin-bottom: 10px;
+}
+
+.main-form input:last-child {
+  margin-bottom: 0;
+}
 /*# sourceMappingURL=main.css.map */

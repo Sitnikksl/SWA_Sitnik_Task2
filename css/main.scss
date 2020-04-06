@@ -21,3 +21,14 @@ body{
     background-color: #F5E9BC;
     border-radius: 25px;
 }
+.main-form{
+    // border: 2px solid #452716; 
+    display: flex;
+    flex-direction: column;
+}
+.main-form input{
+    margin-bottom: 10px;
+}
+.main-form input:last-child{
+    margin-bottom: 0;
+}
