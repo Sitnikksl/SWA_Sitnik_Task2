@@ -1,0 +1,23 @@
+body{
+    background-color: #97C793;
+    /* border: 6px solid #452716; */
+    /* background-color: #E2C292; */
+    /* background-color: #F5E9BC; */
+    margin: 0;
+}
+.hero{
+    height: 100vh;
+    background-color: #97C793;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-block{
+    width: 500px;
+    height: 200px;
+    border: 6px solid #452716; 
+    background-color: #F5E9BC;
+    border-radius: 25px;
+}
