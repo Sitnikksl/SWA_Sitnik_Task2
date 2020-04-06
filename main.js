@@ -11,4 +11,9 @@ getFile('JSON/signin.js'); //в функцию подаем путь к файл
 function parse(obj) {
     data = JSON.parse(obj);
     console.log(data);
+    
+    let temp = document.createElement('form');// записали в переменную temp создание нового элемента
+    temp.setAttribute('name', data.name);// установили атрибут форме
+    document.body.append(temp); // метод append вставляет в конец node
 }
+
