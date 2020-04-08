@@ -8,13 +8,7 @@ function getFile (fileName) {
     }
     request.send();
 }
-let jFile = 'JSON/colorsheme.js';
-$('.signin').click(function getJSON(){
-    jFile = 'JSON/signin.js';
-    return jFile;
-})
-getFile(jFile); //в функцию подаем путь к файлу
-
+getFile('JSON/colorsheme.js'); //в функцию подаем путь к файлу
 function parse(obj) {
     data = JSON.parse(obj);
     console.log(data);
@@ -36,29 +30,10 @@ function parse(obj) {
                     if(tempTagName == 'label'){
                         let prop = value.label; // хранится значение текущего ключа
                         createTag.innerHTML = prop; // вставляем значенеие в HTML разметку
-                    }else if (tempTagName == 'input'){
+                    }else{
                         let temp = value.input; // записали во временную переменню объект input
                         for (z in temp){
-                            if(z == 'colors'){
-                                let createData = document.createElement('datalist');
-                                createTag.className = 'color-input';
-                                createTag.setAttribute('list', 'datalist-colors');
-                                createTag.append(createData);
-                                createData.id = 'datalist-colors';
-                                createTag.setAttribute('value', temp.colors[0]);
-                                for(i in temp.colors){
-                                    let createOption = document.createElement('option');
-                                    $('#datalist-colors').append(createOption);
-                                    createOption.innerHTML = temp.colors[i];
-                                }
-                            }else if(z == 'checked'){
-                                if(temp[z] == 'true'){
-                                    createTag.setAttribute('checked', temp[z]);
-                                }
-                            }
-                            else{
-                                createTag.setAttribute(z, temp[z]);
-                            }
+                            createTag.setAttribute(z, temp[z]);
                         }
                     }
                 }
@@ -80,13 +55,12 @@ function parse(obj) {
                         $('.main-form').append(createText);
                         createText.className = 'text-without';
                         createText.innerHTML = tempValue;
-                    } else if(j == 'text'){ // если поле со значением ТЕКСТ, то создаем ссылку
+                    }else if(j == 'text'){
                         $('.main-form').append(createRef);
-                        createRef.className = "main-form__link";
                         createRef.innerHTML = tempValue;
-                    }
-                    else if(j == 'ref'){ // если там 'ref', то добавляем атриьбут
-                        let container = document.getElementsByClassName('main-form__link');
+                        createRef.className = 'form-link';
+                    }else{
+                        let container = document.getElementsByClassName('form-link');
                         container[key].href = tempValue;
                     }
                 }

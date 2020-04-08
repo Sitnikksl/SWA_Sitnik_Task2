@@ -7,6 +7,19 @@ body {
   color: #452716;
 }
 
+ul {
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+}
+
 a {
   color: #452716;
   text-decoration: none;
@@ -15,6 +28,10 @@ a {
 a:hover {
   text-decoration: underline;
   display: inline-block;
+}
+
+li {
+  list-style-type: none;
 }
 
 .hero {
@@ -31,6 +48,29 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.json__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.json__item {
+  margin-right: 10px;
+}
+
+.json__item:last-child {
+  margin-right: 0;
 }
 
 .main-block {

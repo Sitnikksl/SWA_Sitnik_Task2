@@ -6,6 +6,13 @@ body{
     margin: 0;
     color: #452716;
 }
+ul{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
 a{
     color: #452716;
     text-decoration: none; 
@@ -13,6 +20,9 @@ a{
 a:hover{
     text-decoration: underline;
     display: inline-block;
+}
+li{
+    list-style-type: none;
 }
 .hero{
     height: 100vh;
@@ -22,6 +32,19 @@ a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.json__list{
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
+}
+.json__item{
+    margin-right: 10px;
+}
+.json__item:last-child{
+    margin-right: 0;
 }
 .main-block{
     width: 500px;
@@ -29,6 +52,7 @@ a:hover{
     border: 6px solid #452716; 
     background-color: #F5E9BC;
     border-radius: 25px;
+   
 }
 .main-form{
     border: 3px solid #452716; 
