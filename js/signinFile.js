@@ -8,7 +8,7 @@ function getFile (fileName) {
     }
     request.send();
 }
-let jFile = 'JSON/colorsheme.js';
+let jFile = 'JSON/addpost.js';
 $('.signin').click(function getJSON(){
     jFile = 'JSON/signin.js';
     return jFile;
@@ -76,7 +76,20 @@ function parse(obj) {
                     let tempValue = value[j];
                     let createRef = document.createElement('a'),
                         createText = document.createElement('p');
-                    if(j == 'text without ref'){
+                    if(j == 'input'){
+                        let createInput = document.createElement(j);
+                        for(x in tempValue){
+                            if(x == 'checked'){
+                                if(tempValue[x] == 'true'){
+                                    createInput.setAttribute(x, tempValue);
+                                }
+                            }else{
+                                createInput.setAttribute(x, tempValue[x]);
+                            }
+                            
+                        }
+                        $('.main-form').append(createInput);
+                    }else if(j == 'text without ref'){
                         $('.main-form').append(createText);
                         createText.className = 'text-without';
                         createText.innerHTML = tempValue;
@@ -87,7 +100,13 @@ function parse(obj) {
                     }
                     else if(j == 'ref'){ // если там 'ref', то добавляем атриьбут
                         let container = document.getElementsByClassName('main-form__link');
-                        container[key].href = tempValue;
+                        if(container.length==1){
+                            for (i in container){
+                                container[i].href = tempValue;
+                            }
+                        }else{
+                            container[key].href = tempValue;
+                        }
                     }
                 }
             }
