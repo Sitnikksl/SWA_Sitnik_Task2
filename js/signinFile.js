@@ -1,3 +1,4 @@
+$('#lool').mask("+7 (999) 999-99-99");
 let data; //объявляем переменную, в которую потом передадим JSON
 let objCount = 0; // счетчик объектов
 function getFile (fileName) {
@@ -8,12 +9,15 @@ function getFile (fileName) {
     }
     request.send();
 }
-let jFile = 'JSON/addpost.js';
-$('.signin').click(function getJSON(){
+let jFile = 'JSON/interview.js';
+let singinBtn = document.querySelector('.signin');
+singinBtn.onclick = function(){
     jFile = 'JSON/signin.js';
-    return jFile;
-})
-getFile(jFile); //в функцию подаем путь к файлу
+    
+}
+getFile(jFile);//в функцию подаем путь к файлу
+
+
 
 function parse(obj) {
     data = JSON.parse(obj);
@@ -55,6 +59,35 @@ function parse(obj) {
                                 if(temp[z] == 'true'){
                                     createTag.setAttribute('checked', temp[z]);
                                 }
+                            }else if(z == 'mask'){
+                                createTag.setAttribute('data-mask', temp[z]);
+                                let createMaskedTag = $(createTag);
+                                createTag.setAttribute('type', 'phone');
+                                createMaskedTag.mask(temp[z]);
+                            }else if(z == 'technologies'){
+                                let createData = document.createElement('datalist');
+                                createTag.append(createData);
+                                createData.id = 'techs';
+                                createTag.setAttribute('list', 'techs');
+                                let tecArr = temp[z];
+                                    for(q in tecArr){
+                                        createOption = document.createElement('option');
+                                        createData.append(createOption);
+                                        createOption.className = 'tec';
+                                        createOption.innerHTML = tecArr[q];
+                                    }
+                                    
+                            }else if(z == 'filetype'){
+                                let fileTypeArr = temp[z];
+                                let aceptedFile = '';
+                                let lastIndex = fileTypeArr.length-1;
+                                for (y in fileTypeArr){
+                                    aceptedFile+='image/'+ fileTypeArr[y];
+                                    if(y !=lastIndex){
+                                        aceptedFile += ', ';
+                                    }
+                                    createTag.setAttribute('accept', aceptedFile); 
+                                } 
                             }
                             else{
                                 createTag.setAttribute(z, temp[z]);
@@ -130,4 +163,3 @@ function parse(obj) {
     }
     parseDataButtons();
 }
-
