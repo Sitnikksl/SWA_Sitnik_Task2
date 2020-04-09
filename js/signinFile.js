@@ -1,4 +1,3 @@
-$('#lool').mask("+7 (999) 999-99-99");
 let data; //объявляем переменную, в которую потом передадим JSON
 let objCount = 0; // счетчик объектов
 function getFile (fileName) {
@@ -10,12 +9,39 @@ function getFile (fileName) {
     request.send();
 }
 let jFile = 'JSON/interview.js';
-let singinBtn = document.querySelector('.signin');
+let singinBtn = document.querySelector('.signin'),
+    signupBtn = document.querySelector('.signup'),
+    colorBtn = document.querySelector('.colorsheme'),
+    addPostBtn = document.querySelector('.addpost'),
+    interviewBtn = document.querySelector('.interwiew');
+
 singinBtn.onclick = function(){
+    $('.main-form').remove();
     jFile = 'JSON/signin.js';
+    getFile(jFile);
     
 }
-getFile(jFile);//в функцию подаем путь к файлу
+signupBtn.onclick = function(){
+    $('.main-form').remove();
+    jFile = 'JSON/signup.js';
+    getFile(jFile);
+}
+colorBtn.onclick = function(){
+    $('.main-form').remove();
+    jFile = 'JSON/colorsheme.js';
+    getFile(jFile);
+}
+interviewBtn.onclick = function(){
+    $('.main-form').remove();
+    jFile = 'JSON/interview.js';
+    getFile(jFile);
+}
+addPostBtn.onclick = function(){
+    $('.main-form').remove();
+    jFile = 'JSON/addpost.js';
+    getFile(jFile);
+}
+//в функцию подаем путь к файлу
 
 
 
